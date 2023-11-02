@@ -14,4 +14,17 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void RestartTheGameFromTheGameOverScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+    }
+
+    public void RestartTheGameFromTheWinnerScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+
+    }
+
 }
