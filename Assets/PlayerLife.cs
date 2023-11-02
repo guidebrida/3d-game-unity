@@ -9,9 +9,11 @@ public class PlayerLife : MonoBehaviour
 {
 
     int lifecount = 3;
+    int goldCount = 0;
 
     Vector2 startPos;
     [SerializeField] public TextMeshProUGUI vidaText;
+    [SerializeField] public TextMeshProUGUI goldText;
 
 
     private void Start()
@@ -36,6 +38,17 @@ public class PlayerLife : MonoBehaviour
         if (collision.gameObject.CompareTag("EnemyHead"))
         {
             Destroy(collision.transform.parent.gameObject);
+        }
+
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("GoldCoin")){
+            goldCount++;
+            goldText.text = "Moedas: " + goldCount;
+            Destroy(other.gameObject);
         }
     }
 
