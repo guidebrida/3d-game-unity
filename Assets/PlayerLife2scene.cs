@@ -5,29 +5,32 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerLife : MonoBehaviour
+public class PlayerLife2scene : MonoBehaviour
 {
 
-    int lifecount = 3;
-    int goldCount = 0;
-
+    int lifecount;
+    int goldCount;
 
     Vector2 startPos;
     [SerializeField] public TextMeshProUGUI vidaText;
     [SerializeField] public TextMeshProUGUI goldText;
 
-
-    public static PlayerLife Instance;
-
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
+        int lifecount = Scorring.lifecountStatic;
+        int goldCount = Scorring.lifecountStatic;
         startPos = transform.position;
+
     }
 
+
+
+
+    // Update is called once per frame
     private void Update()
     {
-        if(transform.position.y < -10f)
+        if (transform.position.y < -10f)
         {
             Die();
         }
@@ -36,7 +39,8 @@ public class PlayerLife : MonoBehaviour
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("enemy body")) {
+        if (collision.gameObject.CompareTag("enemy body"))
+        {
             Die();
         }
         if (collision.gameObject.CompareTag("EnemyHead"))
@@ -49,7 +53,8 @@ public class PlayerLife : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("GoldCoin")){
+        if (other.gameObject.CompareTag("GoldCoin"))
+        {
             goldCount++;
             goldText.text = "Moedas: " + goldCount;
             Destroy(other.gameObject);
@@ -63,8 +68,6 @@ public class PlayerLife : MonoBehaviour
 
         if (other.gameObject.CompareTag("Trofeu"))
         {
-            Scorring.lifecountStatic = lifecount;
-            Scorring.goldCountStatic = goldCount;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
 
@@ -83,10 +86,8 @@ public class PlayerLife : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
-
-
 
 }
