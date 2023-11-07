@@ -16,6 +16,9 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] public TextMeshProUGUI goldText;
 
 
+    public static PlayerLife Instance;
+
+
     private void Start()
     {
         startPos = transform.position;
@@ -50,6 +53,20 @@ public class PlayerLife : MonoBehaviour
             goldText.text = "Moedas: " + goldCount;
             Destroy(other.gameObject);
         }
+
+
+        if (other.gameObject.CompareTag("faze1"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (other.gameObject.CompareTag("Trofeu"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        }
+
+
+
     }
 
     void Die()

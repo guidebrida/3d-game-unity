@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,21 +11,14 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void OnApplicationQuit()
+    public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void RestartTheGameFromTheGameOverScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
     }
 
     public void RestartTheGameFromTheWinnerScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
-
     }
 
 }

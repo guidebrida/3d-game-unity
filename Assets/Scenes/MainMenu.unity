@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 869320373}
   - component: {fileID: 869320372}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: BotaoSair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,7 +588,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 869320372}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: OnApplicationQuit
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 1322656574}
   - component: {fileID: 1322656573}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BotaoIniciar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
