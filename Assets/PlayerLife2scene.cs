@@ -30,7 +30,7 @@ public class PlayerLife2scene : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (transform.position.y < -10f)
+        if (transform.position.y < -20f)
         {
             Die();
         }
@@ -60,12 +60,6 @@ public class PlayerLife2scene : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-
-        if (other.gameObject.CompareTag("faze1"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
         if (other.gameObject.CompareTag("Trofeu"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
@@ -77,17 +71,9 @@ public class PlayerLife2scene : MonoBehaviour
 
     void Die()
     {
-        lifecount--;
-        vidaText.text = "Vidas: " + lifecount;
-        Console.WriteLine(lifecount.ToString());
-        if (lifecount >= 0)
-        {
-            transform.position = startPos;
-        }
-        else
-        {
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+       
     }
 
 }
